@@ -40,7 +40,7 @@ class CoffeeMachine extends Device {
         if (!this._enabled) {
             throw new Error("Кофеварка выключена")
         }
-        var textcof = 'Готов кофе: ' + this._waterAmount + 'мл'
+       let textcof = 'Готов кофе: ' + this._waterAmount + 'мл'
         return textcof
     }
     addWater(amount) {
