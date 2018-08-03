@@ -104,8 +104,8 @@ inputSH.addEventListener('click', function () {
 
             fridge.temperature = y;
             if (y > 10) {
-                var textdiv1 = document.createElement('div');
-                var p1 = document.createElement('p')
+               let textdiv1 = document.createElement('div');
+                let p1 = document.createElement('p')
                 p1.innerText = 'включен режим разморозки.Нельзя положить еду,холоддильник размораживается'
                 document.body.appendChild(textdiv1)
                 textdiv1.appendChild(p1);
