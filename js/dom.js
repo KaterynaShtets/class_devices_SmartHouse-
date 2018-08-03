@@ -102,7 +102,15 @@ inputSH.addEventListener('click', function () {
 
             let y = Number(inp2.value);
 
-            fridge.temperature = y
+            fridge.temperature = y;
+            if (y > 10) {
+                var textdiv1 = document.createElement('div');
+                var p1 = document.createElement('p')
+                p1.innerText = 'включен режим разморозки.Нельзя положить еду,холоддильник размораживается'
+                document.body.appendChild(textdiv1)
+                textdiv1.appendChild(p1);
+            }
+
             let textinf = 'Текущая температура холодильника:' + y
             let divinf = document.createElement('div');
             let pinf = document.createElement('p')
@@ -141,6 +149,7 @@ inputSh3.addEventListener('click', function () {
         inputoff.type = 'button';
         inputoff.addEventListener('click', function () {
             microwave.disable()
+
         })
         let formm = document.createElement('form');
         formm.name = "fm";
@@ -167,9 +176,14 @@ inputSh3.addEventListener('click', function () {
 
             microwave.timeToCook = z;
             microwave.run();
-
+            var textdiv2 = document.createElement('div');
+            var p2 = document.createElement('p')
+            p2.innerText = microwave._onReady()
+            document.body.appendChild(textdiv2)
+            textdiv2.appendChild(p2);
 
         })
+
 
     })
     microwavediv.appendChild(inputm1)
@@ -180,6 +194,7 @@ inputSh2.addEventListener('click', function () {
     coffeeMachine.power = 10000
     coffeeMachine.WaterAmount = 0;
     sm.addDevices(coffeeMachine)
+
     let div = document.createElement('div');
     div.id = 'mydiv';
     document.body.appendChild(div);
@@ -192,6 +207,7 @@ inputSh2.addEventListener('click', function () {
     newInput1.type = 'button';
     newInput1.addEventListener('click', function () {
         coffeeMachine.enable();
+
         newInput1.style.display = 'none'
         let img1 = document.createElement('img')
 
@@ -228,6 +244,11 @@ inputSh2.addEventListener('click', function () {
         newInput4.type = 'button';
         newInput4.addEventListener('click', function () {
             coffeeMachine.run();
+            let textdiv5 = document.createElement('div');
+            let p5 = document.createElement('p')
+            p5.innerText = coffeeMachine.run();
+            document.body.appendChild(textdiv5)
+            textdiv5.appendChild(p5);
         });
         mainDiv.appendChild(newInput4)
     });
