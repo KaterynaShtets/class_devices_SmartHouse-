@@ -176,8 +176,8 @@ inputSh3.addEventListener('click', function () {
 
             microwave.timeToCook = z;
             microwave.run();
-            var textdiv2 = document.createElement('div');
-            var p2 = document.createElement('p')
+            let textdiv2 = document.createElement('div');
+            let p2 = document.createElement('p')
             p2.innerText = microwave._onReady()
             document.body.appendChild(textdiv2)
             textdiv2.appendChild(p2);
