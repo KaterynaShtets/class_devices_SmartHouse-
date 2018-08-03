@@ -5,10 +5,12 @@ class CoffeeMachine extends Device {
         this._capacity = capacity;
         this._waterAmount = 0;
         this._timerId;
-        this.WATER_HEAT_CAPACITY = 4200;
+       
 
     }
-
+    static get WATER_HEAT_CAPACITY() {
+        return 4200
+      }
     _waterAmountValid(amount) {
         if (typeof amount === 'number' && amount > 0 && amount < this._capacity) {
             this._waterAmount = amount
@@ -24,16 +26,28 @@ class CoffeeMachine extends Device {
         }
         this._waterAmountValid(amount)
     }
-    TimeToBoil() {
+    timeToBoil() {
         return this._waterAmount * this.WATER_HEAT_CAPACITY * 80 / this._power
     };
     disable() {
         super.disable();
         clearTimeout(this.timerId)
-        alert('Кофеварка остановлена')
+        let text5 ='Кофеварка остановлена'
+       let textdiv5 = document.createElement('div');
+        let p5 = document.createElement('p')
+        p5.innerText = text5;
+        document.body.appendChild(textdiv4)
+        textdiv5.appendChild(p5);
+        
     }
     _onReady() {
-        alert('Готов кофе: ' + this._waterAmount + 'мл');
+      let text4 ='Готов кофе: ' + this._waterAmount + 'мл'
+       let textdiv4 = document.createElement('div');
+        let p4 = document.createElement('p')
+        p4.innerText = text4;
+        document.body.appendChild(textdiv4)
+        textdiv4.appendChild(p4);
+        
     }
 
     run() {
@@ -43,7 +57,7 @@ class CoffeeMachine extends Device {
         self = this;
         this._timerId = setTimeout(function () {
             CoffeeMachine.prototype._onReady.call(self)
-        }, this.TimeToBoil())
+        }, this.timeToBoil())
     }
     addWater(amount) {
         this.WaterAmount = this._waterAmount + amount;

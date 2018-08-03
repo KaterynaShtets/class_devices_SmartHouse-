@@ -17,4 +17,7 @@
               this._devices.push(arguments[i])
           }
       }
+      get devices(){
+          return this._devices
+      }
   }

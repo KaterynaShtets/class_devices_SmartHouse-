@@ -22,10 +22,16 @@ class Fridge extends Device {
     }
     set temperature(temperature) {
         if (temperature > 10) {
-            alert('включен режим разморозки');
+            var text1 = 'включен режим разморозки.Нельзя положить еду,холоддильник размораживается'
+        var textdiv1 = document.createElement('div');
+        var p1 = document.createElement('p')
+        p1.innerText = text1;
+        document.body.appendChild(textdiv1)
+        textdiv1.appendChild(p1);
+
 
             this._enabled = false;
-            alert('Нельзя положить еду,холоддильник размораживается')
+            
         }
         if (typeof temperature === 'number' && temperature > -20 && temperature < 0) {
             this._temperature = temperature
